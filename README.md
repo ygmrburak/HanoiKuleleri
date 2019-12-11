@@ -8,7 +8,7 @@ Başlangıçta 3 tane direk var ve birinci direkteki tüm diskler küçükten b�
 
 2-      Herhangi bir disk kendinden küçük diskin üstüne konulamaz.
 
-Oyunun minimum adım sayısının formülü => 2^n-1 (n disk sayısı olmak üzere) olarak gösterilmektedir.
+Oyunun minimum adım sayısının formülü => **2^n-1** (n disk sayısı olmak üzere) olarak gösterilmektedir.
 
 [Oyun Linki](http://www.dersrehberi.com/hanoi.asp)
 
@@ -16,7 +16,7 @@ Oyunun minimum adım sayısının formülü => 2^n-1 (n disk sayısı olmak üze
 
 ## Stack Veri Yapısı
 
-Sadece tek yönden hareketi olan diziye Stack(yığıt) denir. Stack veri yapısında ilk giren veri en son çıkar.(First in Last out)
+Sadece tek yönden hareketi olan diziye Stack(yığıt) denir. Stack veri yapısında ilk giren veri en son çıkar.(**First in Last out**)
 
 Stack veri yapısının belli komutları vardır.
 
@@ -33,6 +33,6 @@ Stack veri yapısının belli komutları vardır.
 
 C++ dilinde uygun bir veri yapısı(stack) kullanarak, efektif bir biçimde Hanoi Kulelerinin en az hamle sayısında çözümünü bulmak.
 
-Neden Stack Veri Yapısı?
+## Neden Stack Veri Yapısı?
 
-Oyunun kurallarından, sadece en üstteki elemanı kullanabildiğimiz için buna en uygun veri yapısı stacktir. ( Last in First out )
+Oyunun kurallarından, sadece en üstteki elemanı kullanabildiğimiz için buna en uygun veri yapısı stacktir. (**Last in First out**)
