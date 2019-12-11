@@ -1,5 +1,7 @@
 # HanoiKuleleri
 
+![banner](https://github.com/ygmrburak/HanoiKuleleri/blob/master/TowerOfHanoi/HanoiImages.png)
+
 Başlangıçta 3 tane direk var ve birinci direkteki tüm diskler küçükten büyüğe doğru sıralanmış durumdadır. Oyunun amacı birinci direkteki diskleri başka direğe kurallara uygun ve minimum hareket sayısıyla taşımaktır. Disk sayısı arttıkça minimum hamle sayısı da artar. Oyunun belli kuralları vardır.
 
 1-      Her defasında sadece bir disk taşınmalıdır.
