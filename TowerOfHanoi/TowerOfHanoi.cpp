@@ -1,11 +1,11 @@
 #include <stdio.h>
-#define SIZE 6
+#define SIZE 4 // KaÃ§ disk iÃ§in oynanmasÄ±nÄ± istiyorsanÄ±z SIZE deÄŸerini o kadar girin. 
 int adim = 0;
 struct stack {
 	int veri[SIZE];
 	int sayac;
 }
-a[3]; // üç direk
+a[3]; // Ã¼Ã§ direk
 int pop(stack* d) {
 	d->sayac--;
 	return d->veri[d->sayac];
@@ -18,14 +18,14 @@ void push(stack* d, int veri) {
 int top(stack* d) {
 	return d->veri[d->sayac - 1];
 }
-int birincidisk() {             // Oyunun çözümü iki adımdan oluşur.Sürekli bu iki adım birbirini takip eder.
-	for (int i = 0; i < 3; i++) // Birinci adım birinci diski doğru hareket ettirmek.
-		if (top(&a[i]) == 1) // Burada birinci adımın fonksiyonunu yazdık.
+int birincidisk() {             // Oyunun Ã§Ã¶zÃ¼mÃ¼ iki adÄ±mdan oluÅŸur.SÃ¼rekli bu iki adÄ±m birbirini takip eder.
+	for (int i = 0; i < 3; i++) // Birinci adÄ±m birinci diski doÄŸru hareket ettirmek.
+		if (top(&a[i]) == 1) // Burada birinci adÄ±mÄ±n fonksiyonunu yazdÄ±k.
 			return i;
 }
 int enkucukdisk() {
-	int ekdisk = 100; //Oyunun çözümünün ikinci adımının fonksiyonudur.
-	int ekdirek = 0; //Amaç birinci diskten sonraki en küçük diski doğru oynatmaktır.
+	int ekdisk = 100; //Oyunun Ã§Ã¶zÃ¼mÃ¼nÃ¼n ikinci adÄ±mÄ±nÄ±n fonksiyonudur.
+	int ekdirek = 0; //AmaÃ§ birinci diskten sonraki en kÃ¼Ã§Ã¼k diski doÄŸru oynatmaktÄ±r.
 	for (int i = 0; i < 3; i++)
 		if (top(&a[i]) < ekdisk && top(&a[i]) > 1 && a[i].sayac != 0)
 		{
@@ -36,14 +36,14 @@ int enkucukdisk() {
 }
 
 int oynarmi(stack* direk1, stack* direk2) {
-	if (direk2->sayac <= 0) //Oyunun kurallarından büyük disk küçük diskin üstüne gelmemeli
-		return 1; //kontolü burada yapıldı.
+	if (direk2->sayac <= 0) //Oyunun kurallarÄ±ndan bÃ¼yÃ¼k disk kÃ¼Ã§Ã¼k diskin Ã¼stÃ¼ne gelmemeli
+		return 1; //kontolÃ¼ burada yapÄ±ldÄ±.
 	if (top(direk1) < top(direk2))
 		return 1;
 	return 0;
 }
 int oyunbittimi() {
-	if (a[0].sayac <= 0 && a[1].sayac == SIZE) // Birinci direğin boş olup tüm disklerin farklı bir direkte doğru bir şekilde olmasını
+	if (a[0].sayac <= 0 && a[1].sayac == SIZE) // Birinci direÄŸin boÅŸ olup tÃ¼m disklerin farklÄ± bir direkte doÄŸru bir ÅŸekilde olmasÄ±nÄ±
 		return 1; // kontrol eder.
 	if (a[0].sayac <= 0 && a[2].sayac == SIZE)
 		return 1;
@@ -64,7 +64,7 @@ void print() {
 
 	}
 }
-void oyna(stack* kimden, stack* kime) { // Tüm kurallar kontrol edildikten sonra diski oynattığımız fonksiyondur.
+void oyna(stack* kimden, stack* kime) { // TÃ¼m kurallar kontrol edildikten sonra diski oynattÄ±ÄŸÄ±mÄ±z fonksiyondur.
 	push(kime, pop(kimden));
 	adim++;
 	print();
@@ -72,34 +72,34 @@ void oyna(stack* kimden, stack* kime) { // Tüm kurallar kontrol edildikten sonra
 
 int main() {
 
-	for (int i = 0; i < 3; i++) // Direklerin(stack) sayaçlarını sıfırladık.
+	for (int i = 0; i < 3; i++) // Direklerin(stack) sayaÃ§larÄ±nÄ± sÄ±fÄ±rladÄ±k.
 		a[i].sayac = 0;
-	for (int i = SIZE; i > 0; i--) // Oynamak istediğimiz disk sayısı kadar birinci direğe(stack) eleman ekliyoruz.
+	for (int i = SIZE; i > 0; i--) // Oynamak istediÄŸimiz disk sayÄ±sÄ± kadar birinci direÄŸe(stack) eleman ekliyoruz.
 		push(&a[0], i);
 	print();
 	while (!oyunbittimi()) { // Oyun bitmediyse diskleri hareket ettirmeye devam eder.
 		int kimden = birincidisk();
 		int kime = kimden;
-		while (!oynarmi(&a[kimden], &a[kime])) { // Oynatacağımız diski kurallara uygun direğe taşıma işlemi.
-			kime++; // Bu while oyunumuzun birinci adımını kullanır.
+		while (!oynarmi(&a[kimden], &a[kime])) { // OynatacaÄŸÄ±mÄ±z diski kurallara uygun direÄŸe taÅŸÄ±ma iÅŸlemi.
+			kime++; // Bu while oyunumuzun birinci adÄ±mÄ±nÄ± kullanÄ±r.
 			if (kime > 2)
 				kime = 0;
 		}
 		printf("------------------------------------------------------------------- \n");
 		printf("from %d to %d \n", kimden + 1, kime + 1);
-		oyna(&a[kimden], &a[kime]); // Kurallara uygun direği bulduğumuzda diski hareket ettiriyoruz.
+		oyna(&a[kimden], &a[kime]); // Kurallara uygun direÄŸi bulduÄŸumuzda diski hareket ettiriyoruz.
 		if (oyunbittimi())
 			break;
 		kimden = enkucukdisk();
 		kime = kimden;
-		while (!oynarmi(&a[kimden], &a[kime])) { //Bu while oyunumuzun ikinci adımını kullanır.
+		while (!oynarmi(&a[kimden], &a[kime])) { //Bu while oyunumuzun ikinci adÄ±mÄ±nÄ± kullanÄ±r.
 			kime++;
 			if (kime > 2)
 				kime = 0;
 		}
 		printf("------------------------------------------------------------------- \n");
 		printf("from %d to %d \n", kimden + 1, kime + 1);
-		oyna(&a[kimden], &a[kime]);  // Kurallara uygun direği bulduğumuzda diski hareket ettiriyoruz.
+		oyna(&a[kimden], &a[kime]);  // Kurallara uygun direÄŸi bulduÄŸumuzda diski hareket ettiriyoruz.
 	}
 	printf("------------------------------------------------------------------- \n");
 	printf("Game Over Thank You For Playing \n");
