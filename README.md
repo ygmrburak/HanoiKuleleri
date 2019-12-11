@@ -29,7 +29,7 @@ Stack veri yapısının belli komutları vardır.
  
 ## Programın Amacı
 
-C++ dilinde uygun bir veri yapısı(stack) kullanarak, efektif bir biçimde Hanoi Kulelerinin en az hamle sayısında çözümünü bulmak.
+C++ dilinde uygun bir veri yapısı(stack) kullanarak, efektif bir biçimde Hanoi Kulelerinin **en az hamle** sayısında çözümünü bulmak.
 
 ## Neden Stack Veri Yapısı?
 
